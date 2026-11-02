@@ -18,6 +18,8 @@ function Home(){
                     </span>
                 </div>
             </div>
+
+            <footer>Build by Vridhi</footer>
         </div>
     ) 
 }
