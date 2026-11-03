@@ -6,7 +6,6 @@ import {useNavigate} from 'react-router-dom';
 function Home(){
 
     const navigate = useNavigate(); 
-
     const [roomId , setRoomId] = useState(""); 
     const [username , setUsername] = useState(""); 
 
@@ -14,9 +13,9 @@ function Home(){
         e.preventdefalut(); 
         const id = uuidV4();
         setRoomId(id); 
-
         toast.success('Created a New Room'); 
     }
+
     const joinRoom = ()=>{
         if(!roomId || !username){
             toast.error('RoomId and Username is required'); 
@@ -30,15 +29,22 @@ function Home(){
         }) 
     }
 
+    const handleInputEnter = (e) =>{
+        if(e.code == 'Enter'){
+            joinRoom(); 
+        }
+    }
+
     return(
         <div className="homePageWrapper">
             <div className="formWrapper">
                 <img className="homePageLogo" src="dev-sync.png" alt="dev-sync-logo"/>
                 <h4 className="mainLabel">Paste Invitatin Room ID</h4>
                 <div className="inputGroup">
-                    <input type="text" className="inputBox" placeholder="Room Id" value = {roomId} onChange={(e)=> setRoomId(e.target.value)}/>
 
-                    <input type="text" className="inputBox" placeholder="UserName" value = {userName} onChange={(e)=> setUsername(e.target.value)}/>
+                    <input type="text" className="inputBox" placeholder="Room Id" value = {roomId} onChange={(e)=> setRoomId(e.target.value)} onKeyUp={handleInputEnter}/>
+
+                    <input type="text" className="inputBox" placeholder="UserName" value = {userName} onChange={(e)=> setUsername(e.target.value)} onKeyUp={handleInputEnter}/>
 
                     <button className="btn joinBtn" onClick={joinRoom}> Join </button>
 
