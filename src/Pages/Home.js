@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {v4 as uuidV4} from 'uuid'; 
+import toast from 'react-hot-toast'; 
 
 function Home(){
 
@@ -10,6 +11,9 @@ function Home(){
         e.preventdefalut(); 
         const id = uuidV4();
         setRoomId(id); 
+
+        toast.success('Created a New Room'); 
+
     }
 
     return(
