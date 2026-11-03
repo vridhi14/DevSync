@@ -7,7 +7,16 @@ function App() {
     <>
 
     <div>
-      <Toaster/>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            theme: {
+              primary: '#4aed88'
+            }
+          }
+        }}
+      />
     </div>
 
     <BrowserRouter>
