@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import {v4 as uuidV4} from 'uuid'; 
 
 function Home(){
+
+    const [roomId , setRoomId] = useState(""); 
+
+
+    const createNewRoom = (e)=>{
+        e.preventdefalut(); 
+        const id = uuidV4();
+        setRoomId(id); 
+    }
+
     return(
         <div className="homePageWrapper">
             <div className="formWrapper">
                 <img className="homePageLogo" src="dev-sync.png" alt="dev-sync-logo"/>
                 <h4 className="mainLabel">Paste Invitatin Room ID</h4>
                 <div className="inputGroup">
-                    <input type="text" className="inputBox" placeholder="Room Id"/>
+                    <input type="text" className="inputBox" placeholder="Room Id" value = {roomId} onChange={(e)=> setRoomId(e.target.value)}/>
                     <input type="text" className="inputBox" placeholder="UserName"/>
 
                     <button className="btn joinBtn"> Join </button>
 
                     <span className="createInfo">
                         If you don't have an Invite , then create &nbsp;
-                        <a href="" className="createNewBtn">New Room</a>
+                        <a onClick={createNewRoom} href="" className="createNewBtn">New Room</a>
                     </span>
                 </div>
             </div>
