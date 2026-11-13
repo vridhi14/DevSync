@@ -16,7 +16,8 @@ function EditorPage(){
                     <h3>Connected</h3>
                     <div className="clientsList">
                         {
-                            clients.map((client) => (<Client/>))
+                            clients.map((client) => 
+                                (<Client key={client.socketId} username={client.username}/>))
                         }
                     </div>
                 </div>
