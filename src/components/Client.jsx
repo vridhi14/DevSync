@@ -1,3 +1,4 @@
+import Avatar from 'react-avatar'; 
 
 function Client(username){
     return(
