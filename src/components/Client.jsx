@@ -2,7 +2,8 @@
 function Client(username){
     return(
     <div className="client">
-        
+        <Avatar/>
+       <span className="userName">{username}</span> 
     </div>
 
 )}
