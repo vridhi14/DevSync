@@ -1,6 +1,6 @@
 import Avatar from 'react-avatar'; 
 
-function Client(username){
+function Client({username}){
     return(
     <div className="client">
         <Avatar name={username} size={50} round="14px"/>
